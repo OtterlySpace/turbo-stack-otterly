@@ -1,0 +1,13 @@
+{
+	"name": "prettier-config",
+	"version": "0.0.0",
+	"private": true,
+	"main": "prettier.config.cjs",
+	"types": "index.d.ts",
+	"files": [
+		"prettier.config.cjs"
+	],
+	"dependencies": {
+		"prettier": "^2.8.7"
+	}
+}

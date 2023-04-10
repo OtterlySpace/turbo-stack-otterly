@@ -1,0 +1,18 @@
+{
+	"name": "eslint-config-nestjs",
+	"version": "0.0.0",
+	"main": "index.cjs",
+	"license": "MIT",
+	"dependencies": {
+		"eslint": "^8.38.0",
+		"eslint-config-tsbase": "*",
+		"eslint-config-prettier": "^8.8.0",
+		"eslint-plugin-prettier": "^4.2.1"
+	},
+	"devDependencies": {
+		"typescript": "^5.0.4"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}
