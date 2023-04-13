@@ -8,7 +8,7 @@
 	],
 	"scripts": {
 		"build": "turbo run build",
-		"dev": "turbo run dev --parallel",
+		"dev": "dotenv -- turbo run dev --parallel",
 		"lint": "turbo run lint --parallel",
 		"lint:fix": "turbo run lint:fix --parallel",
 		"type-check": "turbo run type-check",
@@ -17,6 +17,7 @@
 	"devDependencies": {
 		"eslint-config-tsbase": "*",
 		"prettier-config": "*",
+		"dotenv-cli": "latest",
 		"turbo": "latest"
 	},
 	"engines": {

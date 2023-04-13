@@ -1,6 +1,6 @@
-# Turborepo starter
+# OtterlySpace Turborepo starter
 
-This is an official npm starter turborepo.
+This is [OtterlySpace](https://otterly.space)'s [Turborepo](https://turbo.build/repo) starter stack.
 
 ## What's inside?
 
@@ -8,11 +8,13 @@ This turborepo uses [npm](https://www.npmjs.com/) as a package manager. It inclu
 
 ### Apps and Packages
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `ui`: a stub React component library shared by both `web` and `docs` applications
-- `eslint-config-tsbase`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
+- `front`: a [T3 Stack](https://create.t3.gg/) based [Next.js](https://nextjs.org/) app
+- `back`: a [NestJS](https://nestjs.com/) app
+- `eslint-config-tsbase`: `eslint` configurations (includes `eslint-config-prettier`)
+- `eslint-config-nextjs`: `eslint` configurations for Next.js
+- `eslint-config-nestjs`: `eslint` configurations for NestJS
 - `tsconfig`: `tsconfig.json`s used throughout the monorepo
+- `supabase-db`: a [Supabase CLI](https://supabase.com/docs/guides/cli/local-development) local development configuration for testing Supabase locally
 
 Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
@@ -29,7 +31,7 @@ This turborepo has some additional tools already setup for you:
 To build all apps and packages, run the following command:
 
 ```
-cd my-turborepo
+cd turbo-stack-otterly
 npm run build
 ```
 
@@ -38,8 +40,17 @@ npm run build
 To develop all apps and packages, run the following command:
 
 ```
-cd my-turborepo
+cd turbo-stack-otterly
 npm run dev
+```
+
+You can run a local Supabase instance for testing by running the following command:
+
+**Note:** A .env file is required in the root of the `supabase-db` package. You can copy the `.env.example` file in the `supabase-db` package to `.env` and fill in the values.
+
+```
+cd turbo-stack-otterly/packages/supabase-db
+npm run start-db
 ```
 
 ### Remote Caching
@@ -49,7 +60,7 @@ Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo
 By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
 
 ```
-cd my-turborepo
+cd turbo-stack-otterly
 npx turbo login
 ```
 

@@ -1,0 +1,7 @@
+# Supabase
+.branches
+.temp
+
+# ignore functions and migrations folders as they are not used in this project
+functions/
+migrations/
