@@ -11,6 +11,11 @@
 		"start": "next start"
 	},
 	"dependencies": {
+		"@tanstack/react-query": "^4.19.1",
+		"@tanstack/react-query-devtools": "^4.19.1",
+		"@ts-rest/core": "^3.19.1",
+		"@ts-rest/react-query": "^3.19.1",
+		"api": "*",
 		"next": "^13.3.0",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",

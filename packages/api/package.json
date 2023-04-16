@@ -1,0 +1,22 @@
+{
+	"name": "api",
+	"type": "module",
+	"exports": {
+		"require": "./dist/cjs/index.js",
+		"import": "./dist/esm/index.js"
+	},
+	"main": "dist/cjs/index.js",
+	"scripts": {
+		"api:generate": "rimraf dist && make build",
+		"build:cjs": "make"
+	},
+	"dependencies": {
+		"@ts-rest/core": "^3.19.1",
+		"database": "*",
+		"zod": "^3.21.4"
+	},
+	"devDependencies": {
+		"rimraf": "^5.0.0",
+		"typescript": "^5.0.4"
+	}
+}

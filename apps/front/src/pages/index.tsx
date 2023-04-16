@@ -1,6 +1,7 @@
 import { type NextPage } from "next"
 import Head from "next/head"
 import Link from "next/link"
+import UsersList from "../components/users-list"
 
 const Home: NextPage = () => {
 	return (
@@ -24,6 +25,8 @@ const Home: NextPage = () => {
 								TypeScript, and Tailwind CSS.
 							</div>
 						</div>
+
+						<UsersList />
 
 						<Link
 							className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"

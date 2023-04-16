@@ -1,0 +1,14 @@
+{
+	"extends": "tsconfig/base.json",
+	"compilerOptions": {
+		"module": "ESNext",
+		"target": "ES2017",
+		"outDir": "./dist",
+		"baseUrl": "./src",
+		"strict": true
+	},
+	"exclude": [
+		"dist",
+		"node_modules"
+	]
+}

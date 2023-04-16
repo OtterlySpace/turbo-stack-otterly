@@ -7,6 +7,7 @@
 		"build": {
 			"dependsOn": [
 				"^db:generate",
+				"^api:generate",
 				"^build"
 			],
 			"outputs": [
@@ -29,8 +30,12 @@
 		},
 		"dev": {
 			"dependsOn": [
-				"^db:generate"
+				"^db:generate",
+				"^api:generate"
 			],
+			"cache": false
+		},
+		"api:generate": {
 			"cache": false
 		},
 		"db:generate": {

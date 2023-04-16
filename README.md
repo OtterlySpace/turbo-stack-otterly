@@ -1,3 +1,9 @@
+# ⚠️ This is a work in progress project ⚠️
+
+Please take note that this is a work in progress project. It is not ready for production use yet. It is still missing some features and it is not fully documented yet.
+
+You can follow the progress of this project on [alex73630's Twitch channel](https://www.twitch.tv/alex73630).
+
 # OtterlySpace Turborepo starter
 
 This is [OtterlySpace](https://otterly.space)'s [Turborepo](https://turbo.build/repo) starter stack.
