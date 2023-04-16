@@ -15,10 +15,10 @@
 		"format": "turbo run format"
 	},
 	"devDependencies": {
+		"dotenv-cli": "latest",
 		"eslint-config-tsbase": "*",
 		"prettier-config": "*",
-		"dotenv-cli": "latest",
-		"turbo": "latest"
+		"turbo": "^1.9.1"
 	},
 	"engines": {
 		"node": ">=18.0.0"

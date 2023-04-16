@@ -6,6 +6,7 @@
 	"pipeline": {
 		"build": {
 			"dependsOn": [
+				"^db:generate",
 				"^build"
 			],
 			"outputs": [
@@ -15,15 +16,27 @@
 			]
 		},
 		"lint": {
-			"outputs": []
+			"outputs": [],
+			"cache": false
 		},
 		"lint:fix": {
-			"outputs": []
+			"outputs": [],
+			"cache": false
 		},
 		"format": {
-			"outputs": []
+			"outputs": [],
+			"cache": false
 		},
 		"dev": {
+			"dependsOn": [
+				"^db:generate"
+			],
+			"cache": false
+		},
+		"db:generate": {
+			"cache": false
+		},
+		"db:push": {
 			"cache": false
 		}
 	},
