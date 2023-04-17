@@ -51,6 +51,7 @@
 		"CI",
 		"DATABASE_URL",
 		"VERCEL",
-		"VERCEL_URL"
+		"VERCEL_URL",
+		"NEXT_TELEMETRY_DISABLED"
 	]
 }

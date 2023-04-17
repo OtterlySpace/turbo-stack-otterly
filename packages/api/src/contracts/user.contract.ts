@@ -6,7 +6,7 @@ const c = initContract()
 
 const PostUser = schemas.UserCreateInputSchema
 
-export const UserContract = c.router({
+export const users = c.router({
 	createUser: {
 		method: "POST",
 		path: "/users",

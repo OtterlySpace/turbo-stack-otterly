@@ -12,7 +12,9 @@
 		"lint": "turbo run lint --parallel",
 		"lint:fix": "turbo run lint:fix --parallel",
 		"type-check": "turbo run type-check",
-		"format": "turbo run format"
+		"format": "turbo run format",
+		"db:generate": "turbo run db:generate",
+		"api:generate": "turbo run api:generate"
 	},
 	"devDependencies": {
 		"dotenv-cli": "latest",

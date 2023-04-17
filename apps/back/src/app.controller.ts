@@ -10,9 +10,4 @@ export class AppController {
 	getHello(): string {
 		return this.appService.getHello()
 	}
-
-	@Get("users")
-	getUsers(): Promise<string> {
-		return this.prismaService.user.findMany().then((users) => JSON.stringify(users))
-	}
 }

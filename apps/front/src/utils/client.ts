@@ -1,7 +1,7 @@
 import { initQueryClient } from "@ts-rest/react-query"
-import { router } from "api"
+import contracts from "api"
 
-export const client = initQueryClient(router, {
+export const client = initQueryClient(contracts, {
 	baseUrl: "http://localhost:3001",
 	baseHeaders: {}
 })

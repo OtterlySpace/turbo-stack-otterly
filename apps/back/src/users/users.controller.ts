@@ -6,10 +6,10 @@ import {
 	TsRestRequest,
 	nestControllerContract
 } from "@ts-rest/nest"
-import { UserContract } from "api"
+import contracts from "api"
 import { UsersService } from "./users.service"
 
-const c = nestControllerContract(UserContract)
+const c = nestControllerContract(contracts.users)
 type RequestShapes = NestRequestShapes<typeof c>
 
 @Controller("users")
