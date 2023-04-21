@@ -1,21 +1,21 @@
-import { Injectable } from "@nestjs/common"
-import { PrismaService } from "../prisma/prisma.service"
-import { schemas } from "database"
+import { Inject, Injectable } from "@nestjs/common"
+import { PrismaClient, schemas } from "database"
+import { CustomPrismaService } from "nestjs-prisma"
 import { z } from "zod"
 
 @Injectable()
 export class UsersService {
-	constructor(private readonly prismaService: PrismaService) {}
+	constructor(@Inject("PrismaService") private readonly prismaService: CustomPrismaService<PrismaClient>) {}
 
 	async createUser(data: z.infer<typeof schemas.UserCreateInputSchema>) {
-		return await this.prismaService.user.create({ data })
+		return await this.prismaService.client.user.create({ data })
 	}
 
 	async listUsers() {
-		return await this.prismaService.user.findMany()
+		return await this.prismaService.client.user.findMany()
 	}
 
 	async getUser(id: string) {
-		return await this.prismaService.user.findUnique({ where: { id } })
+		return await this.prismaService.client.user.findUnique({ where: { id } })
 	}
 }

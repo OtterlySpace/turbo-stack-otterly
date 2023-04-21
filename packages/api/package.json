@@ -12,7 +12,7 @@
 		"build:cjs": "make"
 	},
 	"dependencies": {
-		"@ts-rest/core": "3.19.0",
+		"@ts-rest/core": "3.19.2",
 		"database": "*",
 		"zod": "^3.21.4"
 	},
