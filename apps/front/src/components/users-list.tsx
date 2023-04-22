@@ -1,6 +1,7 @@
-import { client } from "../utils/client"
+import { useClient } from "../utils/client"
 
 export default function UsersList() {
+	const client = useClient()
 	const usersQuery = client.users.listUsers.useQuery(["users"])
 
 	return (
@@ -10,7 +11,9 @@ export default function UsersList() {
 			) : (
 				<ul>
 					{usersQuery.data?.body?.users?.map((user) => (
-						<li key={user.id}>{user.name}</li>
+						<li key={user.id} className="text-white">
+							{user.name}
+						</li>
 					))}
 				</ul>
 			)}

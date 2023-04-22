@@ -13,17 +13,28 @@ const server = z.object({
  * built with invalid env vars. To expose them to the client, prefix them with `NEXT_PUBLIC_`.
  */
 const client = z.object({
-	// NEXT_PUBLIC_CLIENTVAR: z.string().min(1),
+	NEXT_PUBLIC_SUPABASE_ENABLED_AUTH_PROVIDERS: z.array(z.string()).optional(),
+	NEXT_PUBLIC_SUPABASE_URL: z.string().url().min(1),
+	NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string().min(1),
+	NEXT_PUBLIC_DISABLE_EMAIL_LOGIN: z
+		.enum(["true", "false"])
+		.optional()
+		.default("true")
+		.transform((val) => val === "true")
 })
 
 /**
  * You can't destruct `process.env` as a regular object in the Next.js edge runtimes (e.g.
  * middlewares) or client-side so we need to destruct manually.
  *
- * @type {Record<keyof z.infer<typeof server> | keyof z.infer<typeof client>, string | undefined>}
+ * @type {Record<keyof z.infer<typeof server> | keyof z.infer<typeof client>, string | string[] | undefined>}
  */
 const processEnv = {
-	NODE_ENV: process.env.NODE_ENV
+	NODE_ENV: process.env.NODE_ENV,
+	NEXT_PUBLIC_SUPABASE_ENABLED_AUTH_PROVIDERS: process.env.NEXT_PUBLIC_SUPABASE_ENABLED_AUTH_PROVIDERS?.split(","),
+	NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
+	NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+	NEXT_PUBLIC_DISABLE_EMAIL_LOGIN: process.env.NEXT_PUBLIC_DISABLE_EMAIL_LOGIN
 	// NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
 }
 
