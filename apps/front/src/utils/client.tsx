@@ -1,7 +1,8 @@
 import { useSession } from "@supabase/auth-helpers-react"
+import { ApiFetcherArgs, tsRestFetchApi } from "@ts-rest/core"
 import { InitClientReturn, initQueryClient } from "@ts-rest/react-query"
 import contracts from "api"
-import { FunctionComponent, ReactElement, createContext, useContext, useEffect, useState } from "react"
+import { FunctionComponent, ReactElement, createContext, useContext, useMemo } from "react"
 
 type Client = InitClientReturn<
 	typeof contracts,
@@ -11,6 +12,7 @@ type Client = InitClientReturn<
 			"Content-Type": "application/json"
 			Authorization?: string
 		}
+		api: typeof tsRestFetchApi
 	}
 >
 
@@ -34,50 +36,35 @@ export const ClientProvider: FunctionComponent<{ children: ReactElement | ReactE
 		supabaseToken = (JSON.parse(decodeURIComponent(supabaseToken)) as string[])?.[0]
 	}
 
-	const [client, setClient] = useState<Client>(
-		initQueryClient(contracts, {
-			baseUrl: "http://localhost:3001",
-			baseHeaders: {
-				"Content-Type": "application/json",
-				...(supabaseToken && { Authorization: `Bearer ${supabaseToken}` })
-			}
-		})
-	)
-
-	useEffect(() => {
+	const getAuthToken = useMemo(() => {
 		if (userSession) {
-			setClient(
-				initQueryClient(contracts, {
-					baseUrl: "http://localhost:3001",
-					baseHeaders: {
-						"Content-Type": "application/json",
-						Authorization: `Bearer ${userSession.access_token}`
-					}
-				})
-			)
+			return userSession.access_token
 		} else if (supabaseToken) {
-			setClient(
-				initQueryClient(contracts, {
-					baseUrl: "http://localhost:3001",
-					baseHeaders: {
-						"Content-Type": "application/json",
-						Authorization: `Bearer ${supabaseToken}`
-					}
-				})
-			)
+			return supabaseToken
 		} else {
-			{
-				setClient(
-					initQueryClient(contracts, {
-						baseUrl: "http://localhost:3001",
-						baseHeaders: {
-							"Content-Type": "application/json"
-						}
-					})
-				)
-			}
+			return undefined
 		}
 	}, [userSession, supabaseToken])
+
+	const client = useMemo<Client>(
+		() =>
+			initQueryClient(contracts, {
+				baseUrl: "http://localhost:3001",
+				baseHeaders: {
+					"Content-Type": "application/json",
+					...(getAuthToken && { Authorization: `Bearer ${getAuthToken}` })
+				},
+				api: async (args: ApiFetcherArgs) => {
+					args.headers = {
+						...args.headers,
+						...(getAuthToken && { Authorization: `Bearer ${getAuthToken}` })
+					}
+
+					return tsRestFetchApi(args)
+				}
+			}),
+		[getAuthToken]
+	)
 
 	return (
 		<ClientContext.Provider

@@ -9,7 +9,7 @@ import "~/styles/globals.css"
 import { ClientProvider } from "../utils/client"
 
 const MyApp: AppType<{
-	initialSession: Session
+	initialSession: Session | null
 }> = ({ Component, pageProps }) => {
 	const [queryClient] = useState(() => new QueryClient())
 	const [supabaseClient] = useState(() => createBrowserSupabaseClient())
