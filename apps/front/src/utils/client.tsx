@@ -51,8 +51,7 @@ export const ClientProvider: FunctionComponent<{ children: ReactElement | ReactE
 			initQueryClient(contracts, {
 				baseUrl: "http://localhost:3001",
 				baseHeaders: {
-					"Content-Type": "application/json",
-					...(getAuthToken && { Authorization: `Bearer ${getAuthToken}` })
+					"Content-Type": "application/json"
 				},
 				api: async (args: ApiFetcherArgs) => {
 					args.headers = {

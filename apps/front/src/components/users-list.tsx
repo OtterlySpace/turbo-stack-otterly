@@ -2,19 +2,15 @@ import { useClient } from "../utils/client"
 
 export default function UsersList() {
 	const client = useClient()
-	const usersQuery = client.users.listUsers.useQuery(["users"])
+	const userQuery = client.users.getSelf.useQuery(["users", "me"])
 
 	return (
 		<div>
-			{usersQuery.isLoading ? (
+			{userQuery.isLoading ? (
 				<div>Loading...</div>
 			) : (
 				<ul>
-					{usersQuery.data?.body?.users?.map((user) => (
-						<li key={user.id} className="text-white">
-							{user.name}
-						</li>
-					))}
+					<li className="text-white">{userQuery.data?.body?.user.name}</li>
 				</ul>
 			)}
 		</div>
