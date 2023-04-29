@@ -12,8 +12,8 @@
 		"dev": "nest start --watch",
 		"start:debug": "nest start --debug --watch",
 		"start:prod": "node dist/main",
-		"lint": "eslint \"{src,apps,libs,test}/**/*.ts\"",
-		"lint:fix": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+		"lint": "SKIP_ENV_VALIDATION=1 eslint \"{src,apps,libs,test}/**/*.ts\"",
+		"lint:fix": "SKIP_ENV_VALIDATION=1 eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
 		"test": "jest",
 		"test:watch": "jest --watch",
 		"test:cov": "jest --coverage",
@@ -24,12 +24,14 @@
 		"@nestjs/common": "^9.4.0",
 		"@nestjs/core": "^9.4.0",
 		"@nestjs/platform-express": "^9.4.0",
+		"@t3-oss/env-core": "^0.2.2",
 		"@ts-rest/nest": "3.19.2",
 		"api": "*",
 		"database": "*",
 		"nestjs-prisma": "^0.20.0",
 		"reflect-metadata": "^0.1.13",
-		"rxjs": "^7.8.0"
+		"rxjs": "^7.8.0",
+		"zod": "^3.21.4"
 	},
 	"devDependencies": {
 		"@nestjs/cli": "^9.4.1",
