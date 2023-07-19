@@ -1,4 +1,4 @@
-import { Session, createBrowserSupabaseClient } from "@supabase/auth-helpers-nextjs"
+import { Session, createPagesBrowserClient } from "@supabase/auth-helpers-nextjs"
 import { SessionContextProvider } from "@supabase/auth-helpers-react"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
@@ -12,7 +12,7 @@ const MyApp: AppType<{
 	initialSession: Session | null
 }> = ({ Component, pageProps }) => {
 	const [queryClient] = useState(() => new QueryClient())
-	const [supabaseClient] = useState(() => createBrowserSupabaseClient())
+	const [supabaseClient] = useState(() => createPagesBrowserClient())
 	return (
 		<SessionContextProvider supabaseClient={supabaseClient} initialSession={pageProps.initialSession}>
 			<QueryClientProvider client={queryClient}>

@@ -5,7 +5,7 @@ charset = utf-8
 end_of_line = lf
 insert_final_newline = true
 
-[*.{js,ts,tsx,json}]
+[*.{js,ts,tsx,json,cjs,mjs}]
 indent_style = tab
 indent_size = 4
 trim_trailing_whitespace=true

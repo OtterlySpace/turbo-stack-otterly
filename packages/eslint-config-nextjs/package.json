@@ -4,15 +4,15 @@
 	"main": "index.cjs",
 	"license": "MIT",
 	"dependencies": {
-		"eslint": "^8.38.0",
+		"eslint": "^8.45.0",
 		"eslint-config-tsbase": "*",
-		"eslint-config-next": "13.3.0",
+		"eslint-config-next": "13.4.10",
 		"eslint-plugin-react": "7.32.2",
 		"eslint-config-prettier": "^8.8.0",
-		"eslint-plugin-prettier": "^4.2.1"
+		"eslint-plugin-prettier": "^5.0.0"
 	},
 	"devDependencies": {
-		"typescript": "^5.0.4"
+		"typescript": "^5.1.6"
 	},
 	"publishConfig": {
 		"access": "public"

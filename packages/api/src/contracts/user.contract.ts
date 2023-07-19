@@ -16,9 +16,9 @@ export const users = c.router({
 		path: "/users",
 		summary: "Create a new user",
 		responses: {
-			201: c.response<{user: schemas.User, created: true}>(),
-			401: c.response<{user: null, created: false}>(),
-			400: c.response<{user: null, created: false}>()
+			201: c.type<{user: schemas.User, created: true}>(),
+			401: c.type<{user: null, created: false}>(),
+			400: c.type<{user: null, created: false}>()
 		},
 		body: PostUser
 	},
@@ -27,9 +27,9 @@ export const users = c.router({
 		path: "/users",
 		summary: "List all users",
 		responses: {
-			200: c.response<{users: schemas.User[]}>(),
-			401: c.response<{users: null}>(),
-			403: c.response<{users: null}>()
+			200: c.type<{users: schemas.User[]}>(),
+			401: c.type<{users: null}>(),
+			403: c.type<{users: null}>()
 		}
 	},
 	getUser: {
@@ -37,10 +37,10 @@ export const users = c.router({
 		path: "/users/:id",
 		summary: "Get a user by id",
 		responses: {
-			200: c.response<{ user: schemas.User }>(),
-			401: c.response<{ users: null }>(),
-			403: c.response<{ users: null }>(),
-			404: c.response<{user: null}>()
+			200: c.type<{ user: schemas.User }>(),
+			401: c.type<{ users: null }>(),
+			403: c.type<{ users: null }>(),
+			404: c.type<{user: null}>()
 		},
 		pathParams: z.object({
 			id: z.string()
@@ -51,8 +51,8 @@ export const users = c.router({
 		path: "/users/me",
 		summary: "Get the current user",
 		responses: {
-			200: c.response<{user: schemas.User}>(),
-			401: c.response<{user: null}>()
+			200: c.type<{user: schemas.User}>(),
+			401: c.type<{user: null}>()
 		}
 	}
 })

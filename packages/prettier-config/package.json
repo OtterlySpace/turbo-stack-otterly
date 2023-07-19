@@ -8,6 +8,6 @@
 		"prettier.config.cjs"
 	],
 	"dependencies": {
-		"prettier": "^2.8.7"
+		"prettier": "^3.0.0"
 	}
 }
