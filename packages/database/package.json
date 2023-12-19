@@ -1,18 +1,20 @@
 {
 	"name": "database",
-	"main": "./dist/index",
-	"types": "./dist/index",
-	"scripts": {
-		"build": "tsc --build --force tsconfig.json",
-		"db:generate": "prisma generate && npm run build",
-		"db:push": "prisma db push --skip-generate"
-	},
 	"dependencies": {
-		"@prisma/client": "4.16.2",
-		"zod-prisma-types": "^2.7.4"
+		"@prisma/client": "5.7.0",
+		"zod-prisma-types": "^3.1.6"
 	},
 	"devDependencies": {
-		"prisma": "^4.16.2",
-		"typescript": "^5.1.6"
-	}
+		"eslint": "^8.55.0",
+		"eslint-config-tsbase": "*",
+		"prisma": "^5.7.0",
+		"typescript": "^5.3.3"
+	},
+	"main": "./index",
+	"scripts": {
+		"db:generate": "prisma generate && npm run build",
+		"db:push": "prisma db push --skip-generate",
+		"db:push-force": "prisma db push --skip-generate --force-reset"
+	},
+	"types": "./index"
 }

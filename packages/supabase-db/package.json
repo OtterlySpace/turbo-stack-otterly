@@ -1,13 +1,13 @@
 {
 	"name": "supabase-db",
 	"version": "0.0.0",
+	"devDependencies": {
+		"dotenv-cli": "latest",
+		"supabase": "latest"
+	},
 	"private": true,
 	"scripts": {
 		"start-db": "dotenv -- supabase start",
 		"stop-db": "supabase stop"
-	},
-	"devDependencies": {
-		"dotenv-cli": "latest",
-		"supabase": "latest"
 	}
 }

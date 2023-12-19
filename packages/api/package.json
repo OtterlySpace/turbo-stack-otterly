@@ -1,19 +1,19 @@
 {
 	"name": "api",
-	"type": "module",
+	"dependencies": {
+		"@ts-rest/core": "3.30.5",
+		"database": "*",
+		"zod": "^3.22.4"
+	},
+	"devDependencies": {
+		"rimraf": "^5.0.5",
+		"typescript": "^5.3.3"
+	},
 	"main": "src/index.ts",
-	"types": "src/index.ts",
 	"scripts": {
 		"api:generate": "rimraf dist && make build",
 		"build:cjs": "make"
 	},
-	"dependencies": {
-		"@ts-rest/core": "3.26.4",
-		"database": "*",
-		"zod": "^3.21.4"
-	},
-	"devDependencies": {
-		"rimraf": "^5.0.1",
-		"typescript": "^5.1.6"
-	}
+	"type": "module",
+	"types": "src/index.ts"
 }
